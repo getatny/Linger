@@ -1,0 +1,71 @@
+.music-block-component {
+    padding: 0 50px;
+    width: 100%;
+    height: 120px;
+    box-sizing: border-box;
+    position: relative;
+    margin-bottom: 30px;
+
+    .block-cover {
+        width: 120px;
+        height: 120px;
+        display: inline-block;
+        position: relative;
+        float: left;
+        background-position: center;
+        background-size: cover;
+        border-radius: 20px;
+        box-shadow: 0 15px 30px -15px #444;
+    }
+
+    .block-info {
+        width: 410px;
+        height: 100px;
+        margin-left: 30px;
+        display: inline-block;
+        float: left;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+
+        .info-title {
+            width: 420px;
+            height: 50px;
+            font-size: 30px;
+            line-height: 50px;
+            color: #17233d;
+        }
+
+        .info-author {
+            width: 420px;
+            font-size: 20px;
+            line-height: 50px;
+            height: 50px;
+            color: #808695;
+        }
+    }
+
+    .block-favorite {
+        width: 40px;
+        margin-left: 20px;
+        float: left;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+
+        .favorite-icon, .favorite-number {
+            display: block;
+            height: 40px;
+            text-align: center;
+            width: 40px;
+
+            text {
+                font-size: 28px;
+            }
+        }
+
+        .favorite-number {
+            font-size: 25px;
+        }
+    }
+}

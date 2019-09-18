@@ -1,0 +1,2 @@
+export const SET_STATUS_BAR = 'SET_STATUS_BAR'
+export const SET_CUSTOM_BAR = 'SET_CUSTOM_BAR'
