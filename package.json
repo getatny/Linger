@@ -1,8 +1,8 @@
 {
-  "name": "Echo",
+  "name": "linger",
   "version": "1.0.0",
   "private": true,
-  "description": "念念不忘，必有回响",
+  "description": "谁为我们生造矛盾这么多",
   "templateInfo": {
     "name": "redux",
     "typescript": false,

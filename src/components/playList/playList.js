@@ -9,11 +9,12 @@ export default class PlayList extends Component {
         this.props.onListItemClick(data)
     }
 
-
     render() {
+        const list = this.props.data !== undefined ? this.props.data : []
+
         return (
             <ScrollView scrollX className='play-list'>
-                {this.props.data.map(item => {
+                {list.map(item => {
                     return (
                         <View className='play-list-item' key={item.id} onClick={() => this.onListItemClick(item.id)}>
                             <View className='item-cover'>

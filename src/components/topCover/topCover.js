@@ -9,7 +9,8 @@ export default class TopCover extends Component {
         return (
             <View className='top-cover-component' style={{ backgroundImage: 'url("' + this.props.cover + '")' }}>
                 <View className='info'>
-                    <Image mode='aspectFit' src={Logo} />
+                    {this.props.logo ? <Image mode='aspectFit' src={Logo} /> : null}
+                    {this.props.children}
                 </View>
             </View>
         )

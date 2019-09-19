@@ -17,7 +17,9 @@ export default class PlayListItemDtail extends Component {
             musicList: [
                 { id: 1, cover: 'http://p3.music.126.net/6CB6Jsmb7k7qiJqfMY5Row==/109951164260234943.jpg?param=100y100', title: 'Counting Sheep', author: 'SAFIA', favorite: '20' },
                 { id: 2, cover: 'http://p2.music.126.net/MXzI7ExXb6ru3CeW_P1HSw==/7906588115831440.jpg?param=130y130', title: 'Counting Sheep', author: 'SAFIA', favorite: '20' },
-                { id: 3, cover: 'http://p2.music.126.net/MXzI7ExXb6ru3CeW_P1HSw==/7906588115831440.jpg?param=130y130', title: 'Counting Sheep', author: 'SAFIA', favorite: '20' }
+                { id: 3, cover: 'http://p2.music.126.net/MXzI7ExXb6ru3CeW_P1HSw==/7906588115831440.jpg?param=130y130', title: 'Counting Sheep', author: 'SAFIA', favorite: '20' },
+                { id: 4, cover: 'http://p2.music.126.net/MXzI7ExXb6ru3CeW_P1HSw==/7906588115831440.jpg?param=130y130', title: 'Counting Sheep', author: 'SAFIA', favorite: '20' },
+                { id: 5, cover: 'http://p2.music.126.net/MXzI7ExXb6ru3CeW_P1HSw==/7906588115831440.jpg?param=130y130', title: 'Counting Sheep', author: 'SAFIA', favorite: '20' },
             ]
         },
     }

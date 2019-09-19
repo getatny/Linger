@@ -10,7 +10,9 @@ export default class MusicBlock extends Component {
 
         return musicList.map(item => (
             <View className='music-block-component' key={item.id}>
-                <View className='block-cover' style={{ backgroundImage: 'url("' + item.cover + '")' }} />
+                <View className='block-cover'>
+                    <View className='cover' style={{ backgroundImage: 'url("' + item.cover + '")' }} />
+                </View>
                 <View className='block-info'>
                     <View className='info-title'>{item.title}</View>
                     <View className='info-author'>{item.author}</View>

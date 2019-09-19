@@ -9,7 +9,7 @@ import PlayListItemDtail from "../../components/playList/playListItemDetail"
 import MusicBlock from "../../components/musicBlock/musicBlock"
 import './music.less'
 
-class Index extends Component {
+class Music extends Component {
 
     state = {
         showPlayListDetail: false,
@@ -40,7 +40,7 @@ class Index extends Component {
             <View className='music-page'>
                 <ScrollView scrollY className='main-content'>
                     <TitleBar />
-                    <TopCover cover={MusicCover} />
+                    <TopCover cover='https://www.getatny.com/wp-content/uploads/2019/09/music-cover.jpg' logo />
                     <Title>一周歌单</Title>
                     <PlayList onListItemClick={this.onListItemClick} data={this.state.playList} />
                     <Title spec>单曲推荐</Title>
@@ -52,4 +52,4 @@ class Index extends Component {
     }
 }
 
-export default Index
+export default Music

@@ -1,7 +1,7 @@
 import '@tarojs/async-await'
 import Taro, { Component } from '@tarojs/taro'
 import { connect, Provider } from '@tarojs/redux'
-import Index from './pages/index'
+import Music from './pages/music/music'
 import configStore from './store'
 import './app.less'
 import { setCustomBar, setStatusBar } from "./store/actions/system";
@@ -30,8 +30,9 @@ class App extends Component {
 
     config = {
         pages: [
-            'pages/index/index',
-            'pages/article/article'
+            'pages/mine/mine',
+            'pages/music/music',
+            'pages/article/article',
         ],
         window: {
             navigationStyle: 'custom',
@@ -39,14 +40,26 @@ class App extends Component {
             navigationBarTextStyle: 'white'
         },
         tabBar: {
+            color: '#17233d',
+            selectedColor: '#19be6b',
             list: [
                 {
-                    pagePath: 'pages/index/index',
-                    text: '音乐'
+                    pagePath: 'pages/music/music',
+                    text: '变徵',
+                    iconPath: './static/img/tab/music-tab.png',
+                    selectedIconPath: './static/img/tab/music-tab-hover.png'
                 },
                 {
                     pagePath: 'pages/article/article',
-                    text: '文章'
+                    text: '珠玑',
+                    iconPath: './static/img/tab/article-tab.png',
+                    selectedIconPath: './static/img/tab/article-tab-hover.png'
+                },
+                {
+                    pagePath: 'pages/mine/mine',
+                    text: '鄙人',
+                    iconPath: './static/img/tab/mine-tab.png',
+                    selectedIconPath: './static/img/tab/mine-tab-hover.png'
                 }
             ]
         }
@@ -66,7 +79,7 @@ class App extends Component {
     render() {
         return (
             <Provider store={store}>
-                <Index />
+                <Music />
             </Provider>
         )
     }

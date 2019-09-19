@@ -7,19 +7,39 @@
     margin-bottom: 30px;
 
     .block-cover {
-        width: 120px;
+        width: 142px;
         height: 120px;
         display: inline-block;
         position: relative;
         float: left;
-        background-position: center;
-        background-size: cover;
-        border-radius: 20px;
-        box-shadow: 0 15px 30px -15px #444;
+
+        &:after {
+            content: '';
+            position: absolute;
+            z-index: 4;
+            width: 142px;
+            height: 120px;
+            background-image: url("../../static/img/music-block-mask.png");
+            background-size: cover;
+            background-position: center;
+            top: 0;
+            left: 0;
+        }
+
+        .cover {
+            width: 120px;
+            height: 120px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 15px 30px -15px #444;
+        }
     }
 
     .block-info {
-        width: 410px;
+        width: 388px;
         height: 100px;
         margin-left: 30px;
         display: inline-block;
@@ -29,7 +49,7 @@
         transform: translateY(-50%);
 
         .info-title {
-            width: 420px;
+            width: 388px;
             height: 50px;
             font-size: 30px;
             line-height: 50px;
@@ -37,7 +57,7 @@
         }
 
         .info-author {
-            width: 420px;
+            width: 388px;
             font-size: 20px;
             line-height: 50px;
             height: 50px;
