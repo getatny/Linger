@@ -1,0 +1,49 @@
+.user-menus {
+    width: calc(750px - 150px);
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10rpx 30rpx -20rpx #555;
+    padding: 0 30px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+
+    .user-menus-item {
+        height: 45px;
+        line-height: 45px;
+        padding: 30px 0;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid #eee;
+        }
+
+        .menu-icon {
+            display: inline-block;
+            float: left;
+            margin-right: 30px;
+
+            text {
+                font-size: 32px;
+            }
+        }
+
+        .menu-title {
+            display: inline-block;
+            float: left;
+            font-size: 32px;
+        }
+
+        .menu-arrow {
+            display: inline-block;
+            float: right;
+            transform: rotate(180deg);
+
+            text {
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+.clear-both {
+    clear: both;
+}

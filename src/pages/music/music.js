@@ -4,10 +4,11 @@ import TitleBar from "../../components/titleBar/titleBar"
 import TopCover from "../../components/topCover/topCover"
 import Title from "../../components/title/title"
 import PlayList from "../../components/playList/playList"
-import MusicCover from '../../static/img/music-cover.jpg'
 import PlayListItemDtail from "../../components/playList/playListItemDetail"
 import MusicBlock from "../../components/musicBlock/musicBlock"
 import './music.less'
+
+const MusicCover = 'https://www.getatny.com/wp-content/uploads/2019/09/music-cover.jpg'
 
 class Music extends Component {
 
@@ -40,7 +41,7 @@ class Music extends Component {
             <View className='music-page'>
                 <ScrollView scrollY className='main-content'>
                     <TitleBar />
-                    <TopCover cover='https://www.getatny.com/wp-content/uploads/2019/09/music-cover.jpg' logo />
+                    <TopCover cover={MusicCover} logo />
                     <Title>一周歌单</Title>
                     <PlayList onListItemClick={this.onListItemClick} data={this.state.playList} />
                     <Title spec>单曲推荐</Title>

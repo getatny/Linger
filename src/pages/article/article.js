@@ -2,7 +2,8 @@ import { ScrollView, View } from "@tarojs/components"
 import Taro, { Component } from '@tarojs/taro'
 import TitleBar from "../../components/titleBar/titleBar";
 import TopCover from "../../components/topCover/topCover";
-import MusicCover from "../../static/img/music-cover.jpg";
+
+const ArticleCover = 'https://www.getatny.com/wp-content/uploads/2019/09/article-cover.jpg'
 
 export default class Article extends Component {
 
@@ -10,7 +11,7 @@ export default class Article extends Component {
         return <View className='article-page'>
             <ScrollView scrollY className='main-content'>
                 <TitleBar />
-                <TopCover cover='https://www.getatny.com/wp-content/uploads/2019/09/article-cover.jpg' logo />
+                <TopCover cover={ArticleCover} logo />
             </ScrollView>
         </View>
     }
