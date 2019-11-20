@@ -31,3 +31,20 @@
         }
     }
 }
+
+.top-blur-cover-component {
+    height: 450px;
+    width: 750px;
+    position: relative;
+
+    .blur-bg {
+        background-position: center;
+        background-size: cover;
+        width: 120%;
+        height: 120%;
+        position: absolute;
+        left: -10%;
+        top: -10%;
+        filter: blur(5px)
+    }
+}

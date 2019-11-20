@@ -6,12 +6,16 @@ import Logo from '../../static/img/logo.png'
 export default class TopCover extends Component {
 
     render() {
+        const { info, logo, children, cover } = this.props
+
         return (
-            <View className='top-cover-component' style={{ backgroundImage: 'url("' + this.props.cover + '")' }}>
-                <View className='info'>
-                    {this.props.logo ? <Image mode='aspectFit' src={Logo} /> : null}
-                    {this.props.children}
-                </View>
+            <View className='top-cover-component' style={{ backgroundImage: 'url("' + cover + '")' }}>
+                {info ? (
+                    <View className='info'>
+                        {logo ? <Image mode='aspectFit' src={Logo} /> : null}
+                        {children}
+                    </View>
+                ) : null}
             </View>
         )
     }

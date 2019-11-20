@@ -1,0 +1,70 @@
+.article-details-page {
+
+    .article-cover {
+        width: 750px;
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+
+        &::after {
+            content: '';
+            width: 100%;
+            height: 100%;
+            background: #000;
+            opacity: .35;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .cover-info {
+            padding: 0 50px;
+            color: #fff;
+            position: absolute;
+            bottom: 100px;
+            z-index: 5;
+
+            .cover-title {
+                font-size: 38px;
+                font-weight: 800;
+                margin-bottom: 15px;
+                line-height: 60px;
+            }
+
+            .cover-info-details {
+                margin-bottom: 20px;
+
+                .cover-author {
+                    margin-right: 25px;
+                }
+
+                .cover-author, .cover-time {
+                    display: inline-block;
+
+                    text {
+                        margin-right: 12px;
+                        font-size: 20px;
+                    }
+                }
+            }
+
+            .cover-description {
+                margin-bottom: 20px;
+            }
+
+            .cover-description, .cover-info-details {
+                font-size: 25px;
+                line-height: 36px;
+            }
+
+            .cover-read-more {
+                text-align: center;
+                transform: rotateX(180deg);
+
+                text {
+                    font-size: 55px;
+                }
+            }
+        }
+    }
+}

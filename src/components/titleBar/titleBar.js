@@ -21,7 +21,7 @@ export default class TitleBar extends Component {
         const statusBar = useSelector(state => state.system.statusBar)
 
         return (
-            <View className='title-bar-component' style={{ height: customBar + 'px' }}>
+            <View className={`title-bar-component ${this.props.black || null}`} style={{ height: customBar + 'px' }}>
                 <View className='title' style={{ height: (customBar - statusBar) + 'px', paddingTop: statusBar + 'px', lineHeight: (customBar - statusBar) + 'px' }}>
                     {this.props.isBack ? (
                         <View className='back-button' onClick={this.onBackButtonClick}>

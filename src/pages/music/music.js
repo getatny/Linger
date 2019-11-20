@@ -41,7 +41,7 @@ class Music extends Component {
             <View className='music-page'>
                 <ScrollView scrollY className='main-content'>
                     <TitleBar />
-                    <TopCover cover={MusicCover} logo />
+                    <TopCover cover={MusicCover} logo info />
                     <Title>一周歌单</Title>
                     <PlayList onListItemClick={this.onListItemClick} data={this.state.playList} />
                     <Title spec>单曲推荐</Title>

@@ -42,7 +42,7 @@ export default class Mine extends Component {
         return <View className='mine-page'>
             <ScrollView scrollY className='main-content'>
                 <TitleBar />
-                <TopCover cover={mineCover}>
+                <TopCover cover={mineCover} info>
                     <View className='user-profile'>
                         <Image className='avatar' mode='aspectFit' src={avatar} />
                         <View className='username'>{nickName}</View>

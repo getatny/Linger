@@ -30,9 +30,10 @@ class App extends Component {
 
     config = {
         pages: [
-            'pages/mine/mine',
             'pages/music/music',
             'pages/article/article',
+            'pages/article/articleDetails',
+            'pages/mine/mine',
         ],
         window: {
             navigationStyle: 'custom',
