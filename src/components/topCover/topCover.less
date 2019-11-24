@@ -5,16 +5,22 @@
     background-size: cover;
     background-position: center;
 
-    &:after {
-        content: '';
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background: #000;
-        opacity: .5;
-        z-index: 1;
+    &.mask {
+        &:after {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #000;
+            opacity: .5;
+            z-index: 1;
+        }
+    }
+
+    &.shadow {
+        box-shadow: 0 5px 15px #333;
     }
 
     .info {
@@ -29,22 +35,5 @@
             width: 220px;
             height: 80px;
         }
-    }
-}
-
-.top-blur-cover-component {
-    height: 450px;
-    width: 750px;
-    position: relative;
-
-    .blur-bg {
-        background-position: center;
-        background-size: cover;
-        width: 120%;
-        height: 120%;
-        position: absolute;
-        left: -10%;
-        top: -10%;
-        filter: blur(5px)
     }
 }

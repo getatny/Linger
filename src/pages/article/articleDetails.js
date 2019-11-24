@@ -1,8 +1,10 @@
-import { ScrollView, View } from "@tarojs/components";
+import { ScrollView, View, RichText, Image } from "@tarojs/components";
 import Taro, { Component } from '@tarojs/taro';
+import { useSelector } from '@tarojs/redux';
 import './articleDetails.less';
 import CIcon from "../../components/cIcon/cIcon";
 import TitleBar from "../../components/titleBar/titleBar";
+import Divider from '../../static/img/divider.png'
 
 export default class ArticleDetails extends Component {
 
@@ -10,63 +12,62 @@ export default class ArticleDetails extends Component {
         super(props)
         this.state = {
             basicArticleInfo: null,
+            showContent: false,
+            pageScrollTop: null,
             articleInfo: {
                 author: 'Matthew Wang',
                 createTime: '2019-11-20',
-                content: '我和他总是在学校的食堂里相遇。每次遇见他，我总是拉着自己的饭友跑到一个偏僻的角落里就餐。\n' +
-                    '\n' +
-                    '我不想让他看到我吃饭时的样子。可他还是看到了，而且还看得特别认真。\n' +
-                    '\n' +
-                    '余生，我们一起吃饭\n' +
-                    '\n' +
-                    '放月假后，我和小伙伴在校门前的小餐馆门外吃米线。米线刚上来，我一歪头，便看到了他。他穿着一身黑色的运动服，在公交站牌处等车。我赶紧埋下头，噘着小嘴用力地吹着筷子夹起来的米线。可事总与愿违，我感觉这是我这辈子吃过的最烫的米线了。\n' +
-                    '\n' +
-                    '我平时吃饭要比常人慢些，这次我的小伙伴等得有点儿小着急。我拿纸巾擦了擦鼻尖上的汗珠，小心地对小伙伴说我吃完了。\n' +
-                    '\n' +
-                    '公交站牌离小餐馆不远，我眼睛的余光似乎时刻能感受到他的注视。好尴尬啊！世界这么大，我想捕捉他的身影时，总是找不到他的脸。可我不想被他撞见时，偏偏又找不到理由逃脱。\n' +
-                    '\n' +
-                    '转眼间，相识已十年。真的好奇怪，我俩竟然都不记得第一次一起吃饭具体吃了什么。但他说他依稀记得他第一次见我吃饭时的情景，他说那是他第一次见吃碗米线能吃那么久的人。\n' +
-                    '\n' +
-                    '他从老家跑到市区陪我过生日。我偷偷从家里溜出来，问他中午打算吃什么，他说不知道。我们边走边看，随意进了一家冷清的餐馆，点了一个红烧鱼块，一个香菇炒油菜。结果，红烧鱼块很难吃，香菇炒油菜也好不到哪里去。事后，我给小伙伴吐槽。小伙伴说我好傻，两个人去吃小火锅岂不是更好些？\n' +
-                    '\n' +
-                    '我和他没吃过什么有特色的小火锅。反倒有一次特别狼狈，外面下着大雨，火锅店里下着小雨。店家用脸盆接着雨水，滴答滴答地，在我的眼前。他时不时地扭头看看脸盆里的水，嘴里还念叨着：这雨一会儿就停。那个时候，我特别希望他不要坐我对面，坐我身边多好。这样，他既看不到我吃饭时的样子，还能和我一起赏雨。\n' +
-                    '\n' +
-                    '我吃饭比较挑。我不挑味道，一道素菜，甚至不放油，不放盐，清水煮一下，我都能咽下去。但是我受不了菜太咸，或者菜没择干净，比如青菜泛黄的部分，土豆发芽的部分，白菜开花的部分。要是喝个小米粥，我会把颜色发黑的小米粒挨个挑在我的碗沿边上。我自己也着实觉得这个毛病不好，碗沿边上一般被我挑出四五个黑米粒来，我便自觉地拿卫生纸抹掉这些黑米粒。\n' +
-                    '\n' +
-                    '可能年岁不够老，可能没去过比较高级的餐厅，目前为止，我脑海里没有一家可以让自己成为常客的餐厅。第一次去一家餐厅，觉得这道菜不错，等下次兴致勃勃为这道菜而来时，发觉已不是上次来时的那个味道。\n' +
-                    '\n' +
-                    '我不吃西餐，确切地说，是我不吃牛排。和他吃了一次牛排后，我痛苦了一周。我这个每隔2个小时就要进食一次的人的肠胃竟然消化不了那个东西。\n' +
-                    '\n' +
-                    '他带着我去那家好多人给他推荐过的烤肉店。我问他吃过没。他说没有，一直想等着和我一起尝试下。我对烤肉没有特别的喜爱，第一次去那家烤肉店，需要排队。我才没有耐心等别人吃完了腾地方。我拉着他就走，他说你看别人都在排队等着，要不咱也等会儿吧？\n' +
-                    '\n' +
-                    '改天你闲了，自己来吃吧。我又不是非要吃烤肉，我只是饿了，想吃饭。我淡淡地回他。\n' +
-                    '\n' +
-                    '他一脸不开心：我自己哪里这么馋，这么喜欢吃烤肉了？只是想和你一起尝试啊。\n' +
-                    '\n' +
-                    '我不松口，他说那明天咱俩早点儿来，今天去吃炒鸡吧。\n' +
-                    '\n' +
-                    '结果第二天下雨了。但我不想再扫他的兴致。担心排队问题，我俩反而来早了，又在等店家开门。或许真是别致的烤肉店吧，在雨里撑伞等着的人，不只我们两个。店家开门后，还一直在收拾杂活，等了好久好久，才开吃。\n' +
-                    '\n' +
-                    '这家烤肉店的餐具是老式的茶缸，满墙都贴着旧报纸。等我吃上第一口烤肉后，他小心地问我味道如何。我笑着反问他：你说呢？他偷偷地笑了：也就那样呗。\n' +
-                    '\n' +
-                    '我安慰他：吃什么不重要，好不好吃也不重要，重要的是和谁一起吃。\n' +
-                    '\n' +
-                    '饭后，我们撑着伞在湖边走了好久。\n' +
-                    '\n' +
-                    '也不知道他是怎么忍受我这个人的。似乎每次吃饭，我总能找出毛病来。不是环境不好，就是餐具不干净，不是饭菜不行，就是服务差劲。可能我俩更适合在家里自己做饭吃吧。可自从他在我家做了一次豆角炒肉片后，再不敢进我家厨房了。\n' +
-                    '\n' +
-                    '其实我感觉炒得还可以，只是酱油放多了，菜相难看而已。但他感觉我爸妈会嫌弃，反倒直接不动手做菜了。\n' +
-                    '\n' +
-                    '和他在一起，吃得最多的算是火锅吧，只是底料和做法不同，鱼，虾，羊肉，或烤或闷或煮。\n' +
-                    '\n' +
-                    '一个哥哥说爱情可以折现。我有些纳闷。哥哥解释道：和自己爱的人在一起，吃碗凉皮都幸福，你根本不会考虑这顿饭能花对方多少钱。\n' +
-                    '\n' +
-                    '好像也挺对啊。\n' +
-                    '\n' +
-                    '只愿余生，我都能和他一起吃饭。且穷，且快乐。'
+                content: '<p>大学同学S一毕业就结婚了，婚后不久怀了孕。本来她想等孩子满一周岁就出来工作，可是她身体底子太差，生孩子时落下一身病。老公体贴她，让她安心在家照顾孩子，不用考虑挣钱，他一个人能养家。</p>\n' +
+                    '<p> </p>\n' +
+                    '<p>从此，S便一心一意在家做全职太太，再不考虑上班的事。几年后，S又生了一个二胎，更不想出来工作了。</p>\n' +
+                    '<p> </p>\n' +
+                    '<p>两个孩子都上了学，S有了大把休闲的时间。她经常在朋友圈晒照片，美食，旅游，帅气的老公和两个儿子，还有宽敞明亮的家，让我们这些苦哈哈的上班族羡慕得红了眼。我偶尔和她聊天，夸奖她老公能干，一个人能养四个人，还把日子过得那么滋润。S总是表现得不以为然：“男人嘛，挣钱养家是应该的。”</p>\n' +
+                    '<p> </p>\n' +
+                    '<p>哪有什么岁月静好，不过是有人替你负重前行</p>\n' +
+                    '<p> </p>\n' +
+                    '<p>当初体质虚弱的S，经过这么多年的调养，已是珠圆玉润，看着比同龄人年轻很多。她时常在朋友圈发一些文字，大多是“岁月静好，现世安稳”之类的内容。她微信上的名字干脆就叫“岁月静好”，我常常加班到深夜刷朋友圈时，一低头看到她的头像就忍不住心生悲凉——-同学不同命，人与人之间的差距怎么会那么大？</p>\n' +
+                    '<p> </p>\n' +
+                    '<p>春节刚过，公司要举办一个大的商务活动，我负责采购红酒。记得S的老公就是红酒经销商，于是给她打了一个电话，要了他老公手机号。</p>\n' +
+                    '<p> </p>\n' +
+                    '<p>电话接通，S的老公听我说明来意，很是兴奋。他说去年和我们老总推销过他经销的红酒，但是没有签成，这次希望我能在老总面前多美言，促成这个大订单。</p>\n' +
+                    '<p> </p>\n' +
+                    '<p>我们约好时间，让他送几个样品过来供我们挑选，当然，最后签单还是要老总定夺。</p>\n' +
+                    '<p> </p>\n' +
+                    '<p>S的老公把红酒样品送来时，老总正好在市里开会，让我们把红酒拿过去，等散了会一起去饭店吃饭。</p>\n' +
+                    '<p>很快到了老总开会的地点，老总说马上出来，让我们在车里等他一会儿。</p>\n' +
+                    '<p> </p>\n' +
+                    '<p>S的老公执意不肯在车上等，他说这样不礼貌，就站在车旁等着。北方二月里的天，和冬天差不了多少，温度还很低。我怕冷不愿下车，就在车上坐着。料峭的寒风里，S的老公西装笔挺地站在外面。他和我只隔着一层车窗玻璃，脸上冻得起了一层鸡皮疙瘩都看得清清楚楚。他带着谦卑的笑容，专注地看着会议厅门口方向。</p>\n' +
+                    '<p> </p>\n' +
+                    '<p>等了二十多分钟，我们老总终于出来了。S的老公赶紧抢步迎上去握手，我也下了车。我们老总握了一下他的手，有点吃惊：“你的手怎么那么凉，没在车里等我吗？”S的老公连连说：“没关系，没关系，车里太闷，正好透透气。”</p>\n' +
+                    '<p> </p>\n' +
+                    '<p>我们一起去饭店吃饭，品酒。</p>\n' +
+                    '<p> </p>\n' +
+                    '<p>酒桌上，为了表示诚意，S的老公一杯接着一杯地干，把我看得心惊肉跳。我劝他少喝点，酒喝多了对身体不好。他笑，没事，已经习惯了，经常这样喝。我这个老板说得好听叫“总”，其实就是销售员，不喝酒怎么卖酒？</p>\n' +
+                    '<p> </p>\n' +
+                    '<p>中途的时候，S的老公说去一下洗手间，我看他脸色十分难看，就追了出去。洗手间门口，一股刺鼻的酒味迎面而来，S的老公弯着腰在洗手池那吐，表情痛苦不堪。他看到我，强颜笑了笑，继续吐。</p>\n' +
+                    '<p> </p>\n' +
+                    '<p>我默默退到门口等他。想起S秀的那些幸福，不由苦笑。她一定不知道自己老公的工作会如此辛苦，那些光鲜背后，就像他穿着单薄的春装站在寒风中等客户一样，不过是咬紧了牙关的支撑。</p>\n' +
+                    '<p> </p>\n' +
+                    '<p>青春年少时，我并不曾懂得自己那些快意活法，都是来自父母的躬身托起。我迷席慕蓉的诗，做琼瑶的粉，为赋新词强说愁，唯独没想过父母的辛苦和劳累。</p>\n' +
+                    '<p> </p>\n' +
+                    '<p>婚前，我甚至在家里没有洗过衣服，更没洗过碗，婚后也整天在父母那蹭吃蹭喝，吃完抹嘴就走。曾经有年轻的同事看到我的手，无不艳羡地说，姐姐三十几岁人的手，竟如同婴儿般柔软白皙。我洋洋得意，自诩丽质天生。</p>\n' +
+                    '<p> </p>\n' +
+                    '<p>记得那一天，妈妈手上的戒指摘不下来，让我帮忙。摸着妈妈的手，感觉那么那粗糙那么僵硬，心口不由一紧。低头看时，发现指尖全是裂口。大的裂口上，贴着医用胶布；小的裂口，一个个张着嘴，仿佛诉说着经年的辛劳。</p>\n' +
+                    '<p> </p>\n' +
+                    '<p>我满心愧疚与感动。妈妈这双粗糙的手，为我承担了太多的累，我却一直以为那是天经地义。</p>\n' +
+                    '<p> </p>\n' +
+                    '<p>众生皆苦，没有人会被命运额外眷顾。如果你活得格外轻松顺遂，一定是有人替你承担了你该承担的重量。</p>\n' +
+                    '<p> </p>\n' +
+                    '<p>那个替你负重前行的人，就是这个世界上最爱你的人，他（她）总是怕你太累，而把最多的重量放在自己肩上。如果一个人对你好，绝对是命运的恩赐，而不是理所应当。哪怕是夫妻，哪怕是父母。</p>\n' +
+                    '<p> </p>\n' +
+                    '<p>你要学会珍惜那个人。</p>\n' +
+                    '<p> </p>\n' +
+                    '<p>Author 苏心，70后女子，专栏作者，流行期刊写手，新媒体编辑。曾经驰骋职场，如今只爱文字，追逐向阳花般的日子。关于职场，关于生活，关于婚姻，关于女人，我手写我心。</p>'
             }
         }
     }
+
+    pageScroll = 0
 
     componentWillMount() {
         const params = this.$router.params
@@ -75,28 +76,54 @@ export default class ArticleDetails extends Component {
         })
     }
 
+    onReadMoreButtonClick = () => {
+        this.setState({ showContent: true })
+    }
+
+    onBackToButtonClick = () => {
+        if (this.pageScroll === 0) {
+            this.setState({ showContent: false })
+        } else {
+            this.setState({ pageScrollTop: 0 }, () => {
+                this.setState({ pageScrollTop: null })
+            })
+        }
+    }
+
+    onArticlePageScroll = (event) => {
+        this.pageScroll = event.detail.scrollTop
+    }
+
     render() {
         const { title, cover } = this.state.basicArticleInfo || {}
         const article = this.state.articleInfo || {}
+        const customBar = useSelector(state => state.system.customBar)
 
         return <View className='article-details-page'>
-            <ScrollView scrollY className='main-content'>
-                <TitleBar isBack />
-                <View className='article-cover' style={{ backgroundImage: 'url("' + cover + '")' }}>
-                    <View className='cover-info'>
-                        <View className='cover-title'>{title}</View>
-                        <View className='cover-info-details'>
-                            <View className='cover-author'>
-                                <CIcon icon='account' />{article.author}
-                            </View>
-                            <View className='cover-time'>
-                                <CIcon icon='clock' />{article.createTime}
-                            </View>
+            <TitleBar isBack black={this.state.showContent} />
+            <View className='article-cover' style={{ backgroundImage: 'url("' + cover + '")' }}>
+                <View className='cover-info'>
+                    <View className='cover-title'>{title}</View>
+                    <View className='cover-info-details'>
+                        <View className='cover-author'>
+                            <CIcon icon='account' />{article.author}
                         </View>
-                        <View className='cover-description'>{article.content.substring(0, 120)}...</View>
-                        <View className='cover-read-more'><CIcon icon='shanghua' /></View>
+                        <View className='cover-time'>
+                            <CIcon icon='clock' />{article.createTime}
+                        </View>
                     </View>
+                    <View className='cover-description'>{article.content.replace(/<\/?.+?>/g, '').substring(0, 120)}...</View>
+                    <View className='cover-read-more' onClick={this.onReadMoreButtonClick}><CIcon icon='shanghua' /></View>
                 </View>
+            </View>
+            <ScrollView scrollY enableBackToTop scrollWithAnimation scrollTop={this.state.pageScrollTop} onScroll={this.onArticlePageScroll} className={`article-main-content ${this.state.showContent ? 'show' : 'false'}`}>
+                <View style={{ padding: customBar + 'px 50rpx 50rpx' }}>
+                    <View className='content-title'>{title}</View>
+                    <Image src={Divider} mode='aspectFit' className='divider' />
+                    <RichText className='content-full' nodes={article.content} />
+                </View>
+                <View className='flow-menu favorite'><CIcon icon='favorites' /></View>
+                <View className='flow-menu back-to' onClick={this.onBackToButtonClick}><CIcon icon='back' /></View>
             </ScrollView>
         </View>
     }

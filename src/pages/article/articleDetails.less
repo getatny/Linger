@@ -1,4 +1,7 @@
 .article-details-page {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
 
     .article-cover {
         width: 750px;
@@ -6,6 +9,7 @@
         background-size: cover;
         background-position: center;
         position: relative;
+        overflow: hidden;
 
         &::after {
             content: '';
@@ -23,6 +27,8 @@
             position: absolute;
             bottom: 100px;
             z-index: 5;
+            width: 100%;
+            box-sizing: border-box;
 
             .cover-title {
                 font-size: 38px;
@@ -64,6 +70,92 @@
                 text {
                     font-size: 55px;
                 }
+            }
+        }
+    }
+
+    .article-main-content {
+        width: 750px;
+        height: 100vh;
+        overflow: hidden;
+        position: absolute;
+        z-index: 5;
+        background: #fff;
+        transition: bottom .45s ease-in;
+        box-sizing: border-box;
+
+        &.show {
+            bottom: 0;
+
+            .favorite, .back-to {
+                opacity: 1;
+            }
+        }
+
+        &.false {
+            bottom: -110vh;
+        }
+
+        .flow-menu {
+            position: fixed;
+            width: 80px;
+            height: 80px;
+            background-color: #fff;
+            right: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: opacity .45s ease-in-out;
+
+            text {
+                font-size: 35px;
+            }
+        }
+
+        .favorite {
+            bottom: 100px;
+            box-shadow: 0 15rpx 20px -10px red;
+            border: 1px solid red;
+            padding-top: 10px;
+            color: red;
+        }
+
+        .back-to {
+            transform: rotate(90deg);
+            bottom: 195px;
+            box-shadow: 0 15rpx 20px -10px #aaa;
+            border: 1px solid #aaa;
+            color: #aaa;
+        }
+
+        .content-title {
+            margin-top: 35px;
+            margin-bottom: 60px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            line-height: 50px;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .divider {
+            height: 15px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 45px;
+        }
+
+        .content-full {
+            line-height: 45px;
+            letter-spacing: 4px;
+
+            p {
+                text-indent: 2em;
+                color: red;
             }
         }
     }
