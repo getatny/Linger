@@ -76,13 +76,15 @@ export default class ArticleDetails extends Component {
         })
     }
 
-    onReadMoreButtonClick = () => {
+    onReadMoreButtonClick = async () => {
         this.setState({ showContent: true })
+        await Taro.setNavigationBarColor({ frontColor: '#000000', backgroundColor: '#ffffff' })
     }
 
-    onBackToButtonClick = () => {
+    onBackToButtonClick = async () => {
         if (this.pageScroll === 0) {
             this.setState({ showContent: false })
+            await Taro.setNavigationBarColor({ frontColor: '#ffffff', backgroundColor: '#000000' })
         } else {
             this.setState({ pageScrollTop: 0 }, () => {
                 this.setState({ pageScrollTop: null })
@@ -123,7 +125,7 @@ export default class ArticleDetails extends Component {
                     <RichText className='content-full' nodes={article.content} />
                 </View>
                 <View className='flow-menu favorite'><CIcon icon='favorites' /></View>
-                <View className='flow-menu back-to' onClick={this.onBackToButtonClick}><CIcon icon='back' /></View>
+                <View className='flow-menu back-to' onClick={this.onBackToButtonClick}><CIcon icon='back' style={{ transform: 'rotate(90deg)' }} /></View>
             </ScrollView>
         </View>
     }
