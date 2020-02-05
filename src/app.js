@@ -34,6 +34,11 @@ class App extends Component {
             'pages/article/article',
             'pages/article/articleDetails',
             'pages/mine/mine',
+            'pages/mine/about',
+            'pages/mine/suggestion',
+            'pages/mine/favoriteMusic',
+            'pages/mine/favoriteMusicList',
+            'pages/mine/favoriteArticle'
         ],
         window: {
             navigationStyle: 'custom',

@@ -8,15 +8,16 @@ import UserMenu from "../../components/userMenu/userMenu";
 import './mine.less'
 import { setUserInfo } from "../../store/actions/user";
 
-const mineCover = 'https://www.getatny.com/wp-content/uploads/2019/09/mine-cover.jpg'
+const mineCover = 'https://s2.ax1x.com/2020/02/01/1GmVnx.md.png'
+
 const favoriteMenus = [
-    { id: 1, title: '喜欢的音乐', link: '', icon: 'favorite' },
-    { id: 2, title: '喜欢的歌单', link: '', icon: 'similarproduct' },
-    { id: 3, title: '喜欢的文章', link: '', icon: 'imagetext' },
+    { id: 1, title: '喜欢的音乐', link: '/pages/mine/favoriteMusic', icon: 'favorite' },
+    { id: 2, title: '喜欢的歌单', link: '/pages/mine/favoriteMusicList', icon: 'similarproduct' },
+    { id: 3, title: '喜欢的文章', link: '/pages/mine/favoriteArticle', icon: 'imagetext' },
 ]
 const personalMenus = [
-    { id: 1, title: '关于我们', link: '', icon: 'earth' },
-    { id: 2, title: '意见反馈', link: '', icon: 'comments' },
+    { id: 1, title: '关于我们', link: '/pages/mine/about', icon: 'earth' },
+    { id: 2, title: '意见反馈', link: '/pages/mine/suggestion', icon: 'comments' },
     { id: 3, title: '清除缓存', link: '', icon: 'save' },
 ]
 

@@ -96,6 +96,14 @@ export default class ArticleDetails extends Component {
         this.pageScroll = event.detail.scrollTop
     }
 
+    onShareAppMessage = () => {
+        return {
+            title: `${this.state.basicArticleInfo.title} - Linger`,
+            path: '/page/music/music',
+            imageUrl: this.state.basicArticleInfo.cover
+        }
+    }
+
     render() {
         const { title, cover } = this.state.basicArticleInfo || {}
         const article = this.state.articleInfo || {}

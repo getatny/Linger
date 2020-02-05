@@ -38,8 +38,8 @@ export default class Article extends Component {
                 </TopCover>
                 {this.state.articleList.slice(1).map((item, index) => {
                     return <View className='article' key={item.id} style={index === 0 ? { marginTop: '35rpx' } : null} onClick={() => this.onArticleClick(item)}>
-                        <View className='article-cover' style={{ backgroundImage: 'url("' + item.cover + '")' }} />
-                        <View className='article-info'>
+                        <View className='article-cover' style={index % 2 === 0 ? { backgroundImage: 'url("' + item.cover + '")', left: 0 } : { backgroundImage: 'url("' + item.cover + '")', right: 0 }} />
+                        <View className='article-info' style={index % 2 === 0 ? { right: 0 } : { left: 0 }}>
                             <View className='title'>{item.title}</View>
                         </View>
                     </View>

@@ -5,8 +5,10 @@ import './userMenu.less'
 
 export default class UserMenu extends Component {
 
-    onMenuItemClicked = link => {
-        console.log(link)
+    onMenuItemClicked = async link => {
+        await Taro.navigateTo({
+            url: link,
+        })
     }
 
     render() {

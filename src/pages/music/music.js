@@ -8,7 +8,7 @@ import PlayListItemDtail from "../../components/playList/playListItemDetail"
 import MusicBlock from "../../components/musicBlock/musicBlock"
 import './music.less'
 
-const MusicCover = 'https://www.getatny.com/wp-content/uploads/2019/09/music-cover.jpg'
+const MusicCover = 'https://s2.ax1x.com/2020/02/01/1GDTsI.md.png'
 
 class Music extends Component {
 
@@ -36,9 +36,16 @@ class Music extends Component {
         this.setState({ showPlayListDetail: false })
     }
 
+    onShareAppMessage = () => {
+        return {
+            title: 'Linger - 弥留',
+            path: '/page/music/music'
+        }
+    }
+
     render() {
         return (
-            <View className='music-page'>
+            <View className='main-page'>
                 <ScrollView scrollY className='main-content'>
                     <TitleBar />
                     <TopCover cover={MusicCover} logo info />
